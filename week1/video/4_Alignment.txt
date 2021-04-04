@@ -1,0 +1,60 @@
+Hi again,
+you'll now learn about alignment. Before end to end neural machine
+translation alignments was very critical when translating one language
+to another language. Alignment is still widely used today for
+word sense disambiguation or word sense discovery. So with that said, let's dive in. If your model needs to be able
+to focus in the right place, so it's can choose the right
+output to predict. Then it makes a lot of sense that you
+would want the words of the inputs to align what the words of the output. The concept of word alignment is not
+a new one, actually, it used to be critically important to classic
+methods of statistical translation. It's still widely used today for
+translating languages, and word sense discovery, and disambiguation. For word sense disambiguation, let's
+say you have the word bank over here, which could mean either a financial
+institution or a riverbank. What you can do with this is translate
+the word into another language. And based on the interpretation of
+this word in the other language, you'll be able to tell which definition
+is meant, and that's cool, no. For this week's assignments on neural
+machine translation with attention, you'll achieve word alignments by using
+a system that retrieves information for each piece of inputs and scores it. Let's take a look at how
+words align any sentence, where each word is not exactly the same
+when translating from English to German. So the example given here is from
+a famous speech John F Kennedy gave in Berlin during the Cold War,
+which caused some confusion. Because the term Berliner can denote
+either a citizen of Berlin or a Jelly donut. For all my word nerds out there, look for an optional reading about this historic
+misunderstanding In the course material. But I digress, notice how the English translation has
+more words than the German version. When performing word alignment,
+your model needs to be able to identify relationships among the words in
+order to make accurate predictions in case the words are out of order or
+not exact translations. In a model that has a vector for
+each input, there needs to be a way to focus
+more attention in the right places. Many languages don't translate
+exactly into another language. To be able to align the words correctly,
+you need to add a layer to help the decoder understand which inputs
+are more important for each prediction. Enter the attention layer which performs
+a series of calculations that's assigned some inputs,
+more weights than others. You can see here that the hidden state
+shown in dark orange has a heavier line, which indicates that it's been
+given a higher attention score. This means that the next word in
+the decoder's output will be strongly influenced by this encoders hidden states. Now that you know what word alignment is,
+the goal of attention and alignment is computed by giving
+each word vector a score. Let's speak inside the attention layer
+of the NMT model to see what it's doing. There are lots of arrows,
+but just bear with me, the concept is relatively straightforward. First, get all of the available
+hidden states ready for the encoder and do the same for
+the first hidden states of the decoder. In the simplified example,
+there are two encoder hidden states and one decoder hidden states. Next, score each of the encoder hidden
+states by getting its dot product between each encoder state and
+decoder hidden states. If one of the scores is higher than the
+others, it means that this hidden state will have more influence than
+the others on the output. Then you will run scores through softmax,
+so each score is transformed to a number between 0 and 1, this gives
+you your attention distribution. Take each encoder hidden state, and
+multiply it by its softmax score, which is a number between 0 and 1,
+this results in the alignments vector. Almost there, now just add up everything
+in the alignments vector to arrive at what's called the context vector. This guy is what you
+feed into the decoder, so you can see what's happening here can
+be distilled down to a few mathematical operations that are scoring
+words based on their importance. This is the magic of attention. Next, you'll get deeper into
+understanding the attention mechanism and what's contained in the hidden states. So you have now learned about alignments,
+and you've seen how attention
+makes use of this concept.

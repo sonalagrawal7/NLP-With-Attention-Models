@@ -1,0 +1,40 @@
+Welcome to the 4th and
+final course of the specialization. This course is called Natural Language
+Processing with Attention Models. When you finish this course, you have pretty much reached the cutting
+edge of today's practical NLP methods. You use a powerful technique called
+attention to build several different models. Some of the things you build
+using the attention mechanism, you build a powerful
+language translation model. You also build an algorithm
+capable of summarizing texts. You build a model that can actually
+answer questions about the piece of text, and you build a chat bot that you can
+actually have a conversation with. With the skills you
+develop in this course, you'll be able to build state of the art
+NLP applications just like the ones used in many large companies
+in the industry today. I'm pleased to again welcome Lucas and
+Eunice as your instructors for this course. I know both of them are really excited
+to get into the materials with you. Lucas told me the other day he finds
+this course's topics very exciting. Lucas, maybe you could say
+a bit more about that. >> Sure, thank you, Andrew. Well, as you sign the first course, the problem of sentiment
+analysis is a really tricky one. But in many applications you want to
+determine the sentiment of a sentence, so it's a really good problem
+to work on as well. >> Thanks, Lucas. I still have very fond memories of
+when I was leaving Google Brain, and it's nice to see the great work
+that the team continues to put out. Eunice, what do you think? What are the most exciting aspects of
+this course from your perspective? >> Well, Andrew,
+there's a lot to be excited about. For starters, the model that you'll build
+in this course represent the active areas of research at the cutting
+edge of the field. But beyond that,
+when it comes to modern deep learning, there's a sort of new normal,
+which is to say, most people aren't actually building and
+training models from scratch. Instead, it's more common to
+download a pre-trained model and then tweak it and find units for
+your specific use case. In this course, we show you how
+to build the models from scratch, but we also provide you custom pre-trained
+models that we created just for you. By training them continuously for weeks
+on the most powerful TPU clusters that are currently only available
+to researchers as Google. You will practice the workflow
+that's used in the industry, which is to fine tune state of
+the art pre-trained models. The tools you take away from this course, you'll literally be able to build NLP
+systems at the industry standard. >> Thanks very much, Eunice and Lucas for
+that introduction to this course. This is a set of important materials
+that the course will go over, so let's get into it. >> All right, let's get started. >> Good luck!

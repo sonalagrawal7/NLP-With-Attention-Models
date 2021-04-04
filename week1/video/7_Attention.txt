@@ -1,0 +1,77 @@
+Let's now get a little deeper into
+how attention works by creating some components for each input that's are
+useful for quick information retrieval. First, though,
+I'll give you some intuition for information retrieval, then move on
+to discussing the components used for calculating attention weights,
+called keys, queries, and values. Before getting deeper into attention
+territory, here's some intuition for how information retrieval works
+in the context of attention. Say you've lost your keys and have spent a lot of time going over each
+meter of your room looking for them. This is time-consuming and inefficient. Wisely, you ask your mom
+to help you find them. She thinks for a moment waiting up all
+the possibilities for where the keys could be based on what she already knows
+about where they usually are. Then, she tells you
+the likeliest place to look. Behold, she's right, there are your keys. And then nutshell,
+this is what attention is doing. Taking a query, selecting the place
+where the highest likelihood to look for the key, then finding the key. Now, let's peek under the hood
+to see that in action. The attention mechanism uses encoded
+representations of both the input or the encoder hidden states and
+the outputs or the decoder hidden states. The keys and values are pairs. Both of dimension N,
+where N is the input sequence length and comes from the encoder hidden states. Keys and values have their
+own respective matrices, but the matrices have the same shape and
+are often the same. While the queries come from
+the decoder hidden states, both the key value pair and
+the query enter the attention layer from their places on
+opposite ends of the model. And once they're inside, the dot product
+of the querying and the key is calculated. This is essentially a measure
+of similarity between them, and the dot product of similar vectors
+tends to have a higher value. The weighted sum given to each value
+is determined by the probability that the key matches the query. Probability as you might recall, can be determined by running the attention
+wait through the softmax, so there transform to fit a distribution
+of numbers between zero and one. Then, the query is mapped to the next
+key value pair and so on and so forth. This so
+is called scale dot product attention. Now, let's visualize how the attention
+weights look in matrix form. You have all the inputs or
+words of 1, query Q is columns and the words of the keys (K) as the rows. That's value score that you'll remember
+as the weighted sum from the previous slide is indicated here in a lighter shade
+of gray to show the highest score and therefore the match. I've included this one equation just to
+help you get familiar with how it looks, but don't worry, you'll be getting much cozier with the
+math behind attention in upcoming weeks. Here's an example that shows where the
+model is looking when translating between English and German,
+as you'll be doing in your assignments. In this rather straightforward example, attention is first translating the English
+word how, into the German word wie. When attention is translating,
+the word are, is looking at the word sind, and so on. An important thing to keep in mind is
+that the model should be flexible enough to connect each English word
+with its relevant German word, even if they do not appear in the same
+position in their respective sentences. In other words, it should be flexible
+enough to handle differences in grammar and
+word ordering in different languages. So, even though in this example the word
+how, is the first word in the English sentence and the word wie is also
+the first word in the German sentence. The attention model should still be able
+to find a connection between the two words, even if the grammar. And one language requires a different word
+ordering, then the other language does. In the matrix,
+the lighter square shows where the model is actually looking when making
+the translation of that word. I'll show you how to build
+an attention matrix like this one. You will learn how to properly
+interpret the attention matrix and how to use it to make
+the word predictions. In a situation like the one I just
+mentioned, where the grammar of foreign language requires a difference
+word order than the other, the attention is so
+flexible enough to find the connection. The first four tokens, the agreements
+on the, are pretty straightforward, but then the grammatical structure
+between French and English changes. Now instead of looking at
+the corresponding fifth token to translate the French word zone, the attention knows
+to look further down at the eighth token, which corresponds to the English
+word area, glorious and necessary. It's pretty amazing,
+was a little matrix multiplication can do. To recap all the new concepts, attention
+is a layer of calculations that let your model focus on the most important
+parts of the sequence for each step. Queries, values, and keys
+are representations of the encoder and decoder hidden states. And they're used to retrieve information
+inside the attention layer by calculating similarity between the decoder queries and
+the encoder key value pairs. This is them is so flexible, it can even
+find matches between languages with very different grammatical structures or
+alphabets. Congrats on absorbing
+all these new concepts. In the next video, I'll be talking
+about neural machine translation and show you what the setup looks like for
+this system. I'll show you what the data
+set looks like and also be talking about the steps required
+for pre-processing your data sets.

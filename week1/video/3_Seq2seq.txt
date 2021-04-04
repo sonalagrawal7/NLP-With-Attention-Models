@@ -1,0 +1,56 @@
+Good to see you again. You'll now learn about neural
+machine translation, and you'll see what the architecture
+of this neural network looks like. You also learn which words the neural
+network is focusing on when translating from one language,
+to another language. So let's formalize this task. To get started on this weeks material,
+I'll introduce you to neural machine translation, along with the model that was
+traditionally used for its implementation. The Seq2Seq model. Then, I'll talk about some of these models
+shortcomings and the solution as a lead into the model that you'll be
+using in this week's assignments. It's exciting stuff, so let's get started. In neural machine translation you're
+using an encoder and a decoder, to translate from one language to another. This week you will be translating
+from English to German. To do this, you'll use a machine
+translation system that has LSTMs for both, encoding and decoding. The traditional Seq2Seq model was
+introduced by Google in 2014, and was a revelation at the time. Basically, it works by taking one
+sequence of items such as words, and us putting another sequence. The way it does this is by mapping
+variable length sequences to a fixed length memory. This feature is what made this model
+a powerhouse for machine translation, among other things. The inputs and outputs don't
+need to have matching lengths. You might recall the vanishing
+gradients problem from earlier in the specialization. And Seq2Seq models LSTMs and GRUs are typically used to
+avoid vanishing gradients. An encoder decoder looks like this. It takes in a hidden states and a string
+of words, such as a single sentence. The encoder takes the inputs
+one step at a time, collects information for that piece
+of inputs, then moves it forward. The orange rectangle represents
+the encoders final hidden states, which tries to capture all the information
+collected from each input step, before feeding it to the decoder. This final hidden state
+provides the initial states for the decoder to begin
+predicting the sequence. One major limitation of
+the traditional Seq2Seq model, is what's referred to as
+the information bottleneck. You might have already begun to imagine
+what can happen in the case of a long sequence. As individual inputs begin stacking
+up inside the encoders final hidden states, because Seq2Seq
+uses a fixed length memory, longer sequences become problematic. Another issue surfaces as the later
+input steps in the sequence are given more importance. Which you can see illustrated here,
+with the last word of the sentence today. All of this results in a model
+that's performs incredibly well for shorter sequences. And not so well for
+longer, more complex ones. So the power of Seq2Seq which lies
+in its ability to lets inputs and outputs be different sizes, becomes its weakness when
+the input itself is a large size. Because the encoder hidden
+states is of a fixed size, and longer inputs become bottlenecked
+on their way to the decoder. This results in lower model performance
+as sequence size increases, and that's no good. So the issue with having one
+fixed size encoder hidden states, is that it struggles to
+compress longer sequences. And ends up throttling itself and
+punishing the decoder, who only wants to make a good prediction. How can you be nicer to the decoder? You could hold onto each word vector
+with this individual information, instead of trying to smash
+it all into one big vector. But this model still has obvious
+flaws with memory and context. How could you build a time and memory efficient model that predicts
+accurately from a long sequence? This becomes possible if
+the model has a way to select and focus on the likeliest words each step. You can think of this as giving the model
+a new layer to process this information. If you provide the information
+specific to each input word, you give the model a way to focus its
+attention in the right place at each step. And that sweet progress. Up next you'll get a conceptual idea of
+what this new layer is doing and why. You now have an overview of
+neural machine translation, and you have a rough idea of
+what's attention looks like. You know which words
+the model is focusing on when translating from one language
+to another language.
